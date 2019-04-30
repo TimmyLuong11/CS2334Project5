@@ -16,7 +16,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
-import javax.swing.border.Border;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -153,7 +152,7 @@ public class HummingDist extends JFrame
 			@Override
 			public void stateChanged(ChangeEvent e)
 			{
-				valueTextField.setText("" +slider.getValue());
+				valueTextField.setText(" " + slider.getValue());
 			}
 		});
 		
