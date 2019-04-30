@@ -33,7 +33,20 @@ public class HummingDist extends JFrame
 	private JPanel panel3;
 	private JComboBox<String> list;
 	private JLabel label1;
+	private JLabel label2;
+	private JLabel label3;
+	private JLabel label4;
+	private JLabel label5;
+	private JLabel label6;
+	private JLabel label7;
 	private JLabel valueTextField;
+	private JLabel dist0;
+	private JLabel dist1;	
+	private JLabel dist2;
+	private JLabel dist3;
+	private JLabel dist4;
+	private JLabel showStationBox;
+	private Color lb = new Color(51,153,225);
 	
 	public HummingDist() throws IOException
 	{
@@ -43,16 +56,28 @@ public class HummingDist extends JFrame
 		setTextField();
 		setComboBox();
 		setText();
-		panel1.add(b1);
-		panel1.add(b2);
-		panel1.add(b3);
-		panel1.add(inputTextField);
-		panel1.add(slider);
-		panel1.add(list);
-		panel1.add(label1);
-		panel0.add(panel1);
+		panel0.add(b1);
+		panel0.add(b2);
+		panel0.add(b3);
+		panel0.add(inputTextField);
+		panel0.add(slider);
+		panel0.add(list);
+		panel0.add(label1);
+		panel0.add(label2);
+		panel0.add(label3);
+		panel0.add(label4);
+		panel0.add(label5);
+		panel0.add(label6);
+		panel0.add(label7);
+		panel0.add(dist0);
+		panel0.add(dist1);
+		panel0.add(dist2);
+		panel0.add(dist3);
+		panel0.add(dist4);
 		panel0.add(valueTextField);
-		panel0.add(panel2);
+		panel0.add(showStationBox);
+		//panel0.add(panel1);
+		//panel0.add(panel2);
 		this.add(panel0);
 	}
 
@@ -62,7 +87,54 @@ public class HummingDist extends JFrame
 	{
 		label1 = new JLabel();
 		label1.setText("Enter Hamming Dist:");
+		label1.setBounds(5, 8, 120, 10);
+		
+		label2 = new JLabel();
+		label2.setText("Compare with:");
+		label2.setBounds(5, 415, 120, 10);
+
+		label3 = new JLabel();
+		label3.setText("Distance 0");
+		label3.setBounds(15, 500, 120, 10);
+		dist0 = new JLabel();
+		dist0.setBorder(BorderFactory.createLineBorder(lb, 1));
+		dist0.setBounds(150, 495, 100, 20);
+		
+		label4 = new JLabel();
+		label4.setText("Distance 1");
+		label4.setBounds(15, 545, 120, 10);
+		dist1 = new JLabel();
+		dist1.setBorder(BorderFactory.createLineBorder(lb, 1));
+		dist1.setBounds(150, 535, 100, 20);
+		
+		label5 = new JLabel();
+		label5.setText("Distance 2");
+		label5.setBounds(15, 585, 120, 10);
+		dist2 = new JLabel();
+		dist2.setBorder(BorderFactory.createLineBorder(lb, 1));
+		dist2.setBounds(150, 575, 100, 20);
+		
+		label6 = new JLabel();
+		label6.setText("Distance 3");
+		label6.setBounds(15, 625, 120, 10);
+		dist3 = new JLabel();
+		dist3.setBorder(BorderFactory.createLineBorder(lb, 1));
+		dist3.setBounds(150, 615, 100, 20);
+		
+		label7 = new JLabel();
+		label7.setText("Distance 4");
+		label7.setBounds(15, 665, 120, 10);
+		dist4 = new JLabel();
+		dist4.setBorder(BorderFactory.createLineBorder(lb, 1));
+		dist4.setBounds(150, 660, 100, 20);
+		
+		showStationBox = new JLabel();
+		showStationBox.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+		showStationBox.setBackground(Color.WHITE);
+		showStationBox.setOpaque(true);
+		showStationBox.setBounds(25, 150, 200, 250);
 	}
+	
 
 
 
@@ -94,7 +166,7 @@ public class HummingDist extends JFrame
 		String[] lineArray = strings.toArray(new String[]{});
 
 		list = new JComboBox<>(lineArray);
-		//list.setBounds(100, 400, 115, 30);
+		list.setBounds(145, 410, 70, 20);
 		
 	}
 
@@ -108,7 +180,7 @@ public class HummingDist extends JFrame
 	{
 		b1 = new JButton("b1");
 		b1.setText("Show Station");
-		b1.setBounds(15, 90, 115, 25);
+		b1.setBounds(15, 100, 115, 25);
 		b2 = new JButton("b2");
 		b2.setBounds(15, 450, 115, 25);
 		b2.setText("Calculate HD");
@@ -140,13 +212,13 @@ public class HummingDist extends JFrame
 	private void setSlider() 
 	{
 		slider = new JSlider(1, 4);	
-		slider.setBounds(10, 10, 200, 30);
+		slider.setBounds(10, 25, 200, 50);
 		slider.setPaintTicks(true);
 		slider.setMajorTickSpacing(1);
 		slider.setPaintLabels(true);
 		valueTextField = new JLabel();
-		valueTextField.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
-		valueTextField.setBounds(10, 10, 200, 30);
+		valueTextField.setBorder(BorderFactory.createLineBorder(lb, 1));
+		valueTextField.setBounds(125, 5, 100, 20);
 		slider.addChangeListener(new ChangeListener()
 		{
 			@Override
@@ -162,10 +234,11 @@ public class HummingDist extends JFrame
 	{
 		setTitle("Hamming Distance");
 		setSize(625, 775);
-		panel0 = new JPanel(new GridLayout(3,1));
-		panel1 = new JPanel();
-		panel2 = new JPanel(new GridLayout(3,1));
-		panel3 = new JPanel();
+		panel0 = new JPanel(null);
+		//panel0 = new JPanel(new GridLayout(3,1));
+		//panel1 = new JPanel();
+		//panel2 = new JPanel(new GridLayout(3,1));
+		//panel3 = new JPanel();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	}
