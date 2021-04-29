@@ -25,7 +25,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 
-public class HummingDist extends JFrame
+public class HammingDist extends JFrame
 {
 	private JButton b1;
 	private JButton b2;
@@ -57,7 +57,7 @@ public class HummingDist extends JFrame
 	private JLabel pic;
 	private JLabel pic1;
 	
-	public HummingDist() throws IOException
+	public HammingDist() throws IOException
 	{
 		initFrame();
 		setButton();
@@ -164,17 +164,13 @@ public class HummingDist extends JFrame
 	private void setComboBox() throws IOException
 	{
 		BufferedReader input = new BufferedReader(new FileReader("Mesonet.txt"));
-		input.readLine();
-		input.readLine();
-		input.readLine();
-		input.readLine();
 		List<String> strings = new ArrayList<String>();
 		try 
 		{
 			String line = null;
 			while((line = input.readLine()) != null)
 			{
-				strings.add(line.split("\\s+")[1]);
+				strings.add(line);
 			}
 		}
 		catch (FileNotFoundException e)
@@ -272,7 +268,7 @@ public class HummingDist extends JFrame
 	
 	public static void main(String[] args) throws IOException
 	{
-		HummingDist hd = new HummingDist();
+		HammingDist hd = new HammingDist();
 		hd.revalidate();
 	}
 }
